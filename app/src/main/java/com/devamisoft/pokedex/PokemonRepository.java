@@ -33,10 +33,15 @@ public class PokemonRepository {
             @Override
             public void onResponse(Call<PokemonResponse> call, Response<PokemonResponse> response) {
                 if (response.isSuccessful()) {
-                    data.setValue(response.body().getResults());
-                    Log.d("PokemonRepository", "Solicitud exitosa. Datos recibidos: " + response.body().getResults());
-                } else {
-                    Log.e("PokemonRepository", "Error en la solicitud: " + response.code());
+                    List<Pokemon> pokemonList = response.body().getResults();
+
+                    for (int i = 0; i < pokemonList.size(); i++) {
+                        Pokemon pokemon = pokemonList.get(i);
+                        String imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + (i + 1) + ".png";
+                        pokemon.setImageUrl(imageUrl);
+                    }
+
+                    data.setValue(pokemonList);
                 }
             }
 

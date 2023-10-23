@@ -17,6 +17,7 @@ public class Carga extends AppCompatActivity {
             @Override
             public void run() {
                 Intent intentMain = new Intent(Carga.this, PokemonListActivity.class);
+                startActivity(intentMain);
                 finish();
             }
         }, DURACION);

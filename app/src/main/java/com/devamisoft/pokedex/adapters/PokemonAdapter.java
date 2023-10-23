@@ -53,7 +53,8 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonV
         }
 
         void bind(Pokemon pokemon) {
-            Picasso.get().load(pokemon.getUrl()).into(pokemonImage);
+            String imageUrl = pokemon.getImageUrl();
+            Picasso.get().load(imageUrl).into(pokemonImage);
             pokemonName.setText(pokemon.getName());
         }
     }
