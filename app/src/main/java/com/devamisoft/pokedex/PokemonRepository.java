@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.devamisoft.pokedex.models.Pokemon;
+import com.devamisoft.pokedex.models.PokemonDetail;
 
 import java.util.List;
 
@@ -17,13 +18,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class PokemonRepository {
     private PokemonService service;
-
+    private PokemonDetailService pokemonDetailService;
     public PokemonRepository() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://pokeapi.co/api/v2/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         service = retrofit.create(PokemonService.class);
+        pokemonDetailService = retrofit.create(PokemonDetailService.class);
     }
 
     public LiveData<List<Pokemon>> getPokemonList(int limit) {
@@ -53,5 +55,11 @@ public class PokemonRepository {
 
         return data;
     }
+
+    public Call<PokemonDetail> getPokemonDetails(int pokemonId) {
+        return pokemonDetailService.getPokemonDetails(pokemonId);
+    }
+
+
 }
 
