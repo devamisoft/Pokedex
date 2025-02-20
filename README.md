@@ -31,13 +31,3 @@ Instalación
 
 Autor
 Joselyne Rodriguez
-
-Agradecimientos
-[Agradece a cualquier persona o fuente que haya contribuido o inspirado tu proyecto]
-
-Recuerda completar cada sección con la información relevante sobre tu proyecto. Esto ayudará a otros a entender y utilizar tu aplicación de manera efectiva. ¡Buena suerte con tu proyecto!
-
-
-
-
-
